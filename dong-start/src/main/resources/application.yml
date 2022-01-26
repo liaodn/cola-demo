@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://8.142.107.111:8796/appservice?characterEncoding=utf8&useSSL=false
+    username: xht
+    password: 6c2e4f~!@84e662
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#
+  # MongoDB 配置
+  data:
+    mongodb:
+      database: admin
+      username: root
+      password: M9K4suTeQqFxuTxc#
+      host: dds-uf6536fd30773ba41.mongodb.rds.aliyuncs.com
+      port: 3717
+#
