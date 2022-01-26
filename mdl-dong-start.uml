@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>MODULES</ID>
+  <OriginalElement>mdl-dong-start</OriginalElement>
+  <nodes>
+    <node x="116.17291666666664" y="237.0">mdl-dong-client</node>
+    <node x="151.00625" y="0.0">mdl-dong-start</node>
+    <node x="330.25" y="79.0">mdl-dong-infrastructure-mongo</node>
+    <node x="158.25" y="79.0">mdl-dong-app</node>
+    <node x="10.5" y="158.0">mdl-dong-adapter</node>
+    <node x="232.25" y="158.0">mdl-dong-domain</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="mdl-dong-domain" target="mdl-dong-client">
+      <point x="0.0" y="14.5" />
+      <point x="319.75" y="207.0" />
+      <point x="230.27291666666662" y="207.0" />
+      <point x="32.599999999999966" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-start" target="mdl-dong-client">
+      <point x="-62.80000000000001" y="14.5" />
+      <point x="166.70624999999998" y="49.0" />
+      <point x="0.0" y="49.0" />
+      <point x="0.0" y="217.0" />
+      <point x="132.47291666666666" y="217.0" />
+      <point x="-65.19999999999999" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-adapter" target="mdl-dong-client">
+      <point x="0.0" y="14.5" />
+      <point x="98.0" y="207.0" />
+      <point x="165.07291666666663" y="207.0" />
+      <point x="-32.60000000000002" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-infrastructure-mongo" target="mdl-dong-domain">
+      <point x="-66.5" y="14.5" />
+      <point x="396.75" y="133.0" />
+      <point x="378.08333333333337" y="133.0" />
+      <point x="58.33333333333337" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-app" target="mdl-dong-domain">
+      <point x="37.75" y="14.5" />
+      <point x="271.5" y="133.0" />
+      <point x="261.41666666666663" y="133.0" />
+      <point x="-58.33333333333334" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-start" target="mdl-dong-adapter">
+      <point x="-31.400000000000034" y="14.5" />
+      <point x="198.10624999999996" y="59.0" />
+      <point x="98.0" y="59.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-start" target="mdl-dong-domain">
+      <point x="31.399999999999977" y="14.5" />
+      <point x="260.90625" y="59.0" />
+      <point x="319.75" y="59.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-app" target="mdl-dong-client">
+      <point x="-37.75" y="14.5" />
+      <point x="196.0" y="207.0" />
+      <point x="197.67291666666665" y="207.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-infrastructure-mongo" target="mdl-dong-client">
+      <point x="66.50000000000003" y="14.5" />
+      <point x="529.75" y="217.0" />
+      <point x="262.87291666666664" y="217.0" />
+      <point x="65.19999999999999" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-start" target="mdl-dong-infrastructure-mongo">
+      <point x="62.80000000000001" y="14.5" />
+      <point x="292.30625" y="49.0" />
+      <point x="463.25" y="49.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="mdl-dong-start" target="mdl-dong-app">
+      <point x="0.0" y="14.5" />
+      <point x="229.50625" y="49.0" />
+      <point x="233.75" y="49.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="298.5" y="133.0" />
+  <SelectedNodes>
+    <node>mdl-dong-start</node>
+    <node>mdl-dong-domain</node>
+  </SelectedNodes>
+  <Categories />
+</Diagram>
+
