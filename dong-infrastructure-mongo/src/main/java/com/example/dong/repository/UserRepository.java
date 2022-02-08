@@ -2,6 +2,7 @@ package com.example.dong.repository;
 
 import com.example.dong.repository.dataobject.UserDO;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 import java.util.Optional;
 
@@ -11,6 +12,6 @@ import java.util.Optional;
  * @Date: 2022/1/26 1:24 PM
  *
  */
-public interface UserRepository extends MongoRepository<UserDO, Long> {
+public interface UserRepository extends MongoRepository<UserDO, Long>, QuerydslPredicateExecutor<UserDO> {
     Optional<UserDO> findByUsernameLike(String userName);
 }

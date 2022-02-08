@@ -1,6 +1,7 @@
 package com.example.dong.api;
 
 import com.alibaba.cola.dto.Response;
+import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
 
 /**
@@ -11,4 +12,5 @@ import com.example.dong.dto.UserQry;
  */
 public interface UserServiceI {
     Response findByUsernameLike(UserQry qry);
+    Response findBySex(SexQry qry);
 }

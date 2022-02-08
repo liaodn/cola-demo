@@ -2,6 +2,7 @@ package com.example.dong.domain.gateway;
 
 import com.example.dong.domain.user.User;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -12,4 +13,6 @@ import java.util.Optional;
  */
 public interface UserGateway {
     User findByUsernameLike(String userName);
+
+    List<User> findBySex(String sex);
 }

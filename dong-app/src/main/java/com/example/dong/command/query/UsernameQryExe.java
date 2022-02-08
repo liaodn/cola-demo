@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-public class UserQryExe {
+public class UsernameQryExe {
 
     @Autowired
     private UserGateway userGateway;
