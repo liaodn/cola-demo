@@ -32,5 +32,6 @@ public class UserDO {
 
     @Column(name = "sex", length = 64)
     private String sex;
+
 }
 

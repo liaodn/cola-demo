@@ -25,7 +25,7 @@
         <cola.components.version>4.0.1</cola.components.version>
         <mysql.version>5.1.46</mysql.version>
         <querydsl.version>4.4.0</querydsl.version>
-        <guava.version>20.0</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <fastjson.version>1.2.72</fastjson.version>
         <commons-lang3.version>3.1</commons-lang3.version>
         <lombok.version>1.16.22</lombok.version>
@@ -39,6 +39,7 @@
         <module>dong-adapter</module>
         <module>dong-infrastructure-mysql</module>
         <module>dong-infrastructure-mongo</module>
+        <module>dong-flowable</module>
     </modules>
 
     <dependencyManagement>
@@ -89,36 +90,35 @@
                 <scope>test</scope>
             </dependency>
 
-            <!--<dependency>-->
-            <!--<groupId>com.aliyun</groupId>-->
-            <!--<artifactId>cola-core</artifactId>-->
-            <!--<version>3.1.0</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>com.aliyun</groupId>-->
-            <!--<artifactId>cola-common</artifactId>-->
-            <!--<version>3.1.0</version>-->
-            <!--</dependency>-->
-
             <!--COLA Components-->
+            <!--Spring托管的领域实体组件-->
             <dependency>
                 <groupId>com.alibaba.cola</groupId>
                 <artifactId>cola-component-domain-starter</artifactId>
                 <version>${cola.components.version}</version>
             </dependency>
+            <!-- 定义了异常格式，主要有BizException和SysException -->
             <dependency>
                 <groupId>com.alibaba.cola</groupId>
                 <artifactId>cola-component-exception</artifactId>
                 <version>${cola.components.version}</version>
             </dependency>
+            <!--定义了DTO格式，包括分页-->
             <dependency>
                 <groupId>com.alibaba.cola</groupId>
                 <artifactId>cola-component-dto</artifactId>
                 <version>${cola.components.version}</version>
             </dependency>
+            <!--定义了DTO格式，包括分页-->
             <dependency>
                 <groupId>com.alibaba.cola</groupId>
                 <artifactId>cola-component-catchlog-starter</artifactId>
+                <version>${cola.components.version}</version>
+            </dependency>
+            <!--定义了DTO格式，包括分页-->
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-extension-starter</artifactId>
                 <version>${cola.components.version}</version>
             </dependency>
             <!--COLA Components End-->
