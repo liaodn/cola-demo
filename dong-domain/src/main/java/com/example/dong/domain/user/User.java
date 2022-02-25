@@ -2,6 +2,8 @@ package com.example.dong.domain.user;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  *
  * @Author: 廖冬年
@@ -9,7 +11,7 @@ import lombok.Data;
  *
  */
 @Data
-public class User  {
+public class User {
 
     private String id;
 
@@ -20,5 +22,10 @@ public class User  {
     private String email;
 
     private String sex;
+
+    private String createdBy;
+    private Date createdDate = new Date();
+    private String lastModifiedBy;
+    private Date lastModifiedDate = new Date();
 
 }

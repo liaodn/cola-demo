@@ -42,5 +42,10 @@ public class UserGatewayImpl implements UserGateway {
         return userList;
     }
 
+    @Override
+    public User insert(User user) {
+        return null;
+    }
+
 
 }

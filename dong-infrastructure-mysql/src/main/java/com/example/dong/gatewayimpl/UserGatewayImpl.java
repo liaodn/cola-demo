@@ -8,6 +8,7 @@ import com.example.dong.repository.dataobject.QUserDO;
 import com.example.dong.repository.dataobject.UserDO;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -41,5 +42,18 @@ public class UserGatewayImpl implements UserGateway {
         List<User> userList = new ArrayList<>();
         users.forEach(u -> userList.add(UserConvertor.to(u)));
         return userList;
+    }
+
+    @Override
+    public User insert(User user) {
+        UserDO userDO = new UserDO();
+        userDO.setUsername(user.getUsername());
+        userDO.setSex(user.getSex());
+        userDO.setPassword(user.getPassword());
+        userDO.setEmail(user.getEmail());
+        UserDO dbUserDO = userRepository.save(userDO);
+        User userResult =new User();
+        BeanUtils.copyProperties(dbUserDO, userResult);
+        return userResult;
     }
 }

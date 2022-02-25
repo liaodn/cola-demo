@@ -2,10 +2,12 @@ package com.example.dong.service;
 
 import com.alibaba.cola.dto.Response;
 import com.example.dong.api.UserServiceI;
+import com.example.dong.command.UserCOAddCmd;
 import com.example.dong.command.query.SexQryExe;
 import com.example.dong.command.query.UsernameQryExe;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
+import com.example.dong.dto.clientobject.UserCO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -25,6 +27,8 @@ public class UserServiceImpl implements UserServiceI {
     @Resource
     private SexQryExe sexQryExe;
 
+    @Resource
+    private UserCOAddCmd userCOAddCmd;
 
     @Override
     public Response findByUsernameLike(UserQry userQry) {
@@ -34,5 +38,11 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public Response findBySex(SexQry qry) {
         return sexQryExe.execute(qry);
+    }
+
+    @Override
+    public Response insert(UserCO userCO) {
+
+        return userCOAddCmd.execute(userCO);
     }
 }

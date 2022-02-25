@@ -4,6 +4,7 @@ import com.alibaba.cola.dto.Response;
 import com.example.dong.api.UserServiceI;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
+import com.example.dong.dto.clientobject.UserCO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,5 +28,10 @@ public class UserController {
     @PostMapping("/test1")
     public Response getUserInfo(@RequestBody SexQry sexQry) {
         return userServiceI.findBySex(sexQry);
+    }
+
+    @PostMapping("/insert")
+    public Response insert(@RequestBody UserCO userCO) {
+        return userServiceI.insert(userCO);
     }
 }

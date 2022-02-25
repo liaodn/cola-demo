@@ -15,4 +15,7 @@ public interface UserGateway {
     User findByUsernameLike(String userName);
 
     List<User> findBySex(String sex);
+
+    User insert(User user);
+
 }
