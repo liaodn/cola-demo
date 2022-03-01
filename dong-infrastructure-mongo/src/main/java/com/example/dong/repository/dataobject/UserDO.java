@@ -1,8 +1,10 @@
 package com.example.dong.repository.dataobject;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+import lombok.EqualsAndHashCode;
+import org.springframework.data.annotation.*;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 /**
  *
@@ -13,7 +15,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document("tb_user")
-public class UserDO {
+@EqualsAndHashCode(callSuper = false)
+public class UserDO extends BaseABC {
 
     @Id
     private String id;
@@ -25,5 +28,6 @@ public class UserDO {
     private String email;
 
     private String sex;
+
 }
 

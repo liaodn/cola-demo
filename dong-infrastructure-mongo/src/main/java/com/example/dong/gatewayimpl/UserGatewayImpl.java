@@ -7,6 +7,7 @@ import com.example.dong.repository.UserRepository;
 import com.example.dong.repository.dataobject.QUserDO;
 import com.example.dong.repository.dataobject.UserDO;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -44,7 +45,15 @@ public class UserGatewayImpl implements UserGateway {
 
     @Override
     public User insert(User user) {
-        return null;
+        UserDO userDO = new UserDO();
+        userDO.setUsername(user.getUsername());
+        userDO.setSex(user.getSex());
+        userDO.setPassword(user.getPassword());
+        userDO.setEmail(user.getEmail());
+        UserDO dbUserDO = userRepository.save(userDO);
+        User userResult = new User();
+        BeanUtils.copyProperties(dbUserDO, userResult);
+        return userResult;
     }
 
 
