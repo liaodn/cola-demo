@@ -1,7 +1,7 @@
 package com.example.dong.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.config.EnableMongoAuditing;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  *
@@ -10,6 +10,6 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing;
  *
  */
 @Configuration
-@EnableMongoAuditing
-public class MongoAuditingConfiguration {
+@EnableJpaAuditing
+public class JPAAuditingConfiguration {
 }

@@ -11,7 +11,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-#
+
   # MongoDB 配置
   data:
     mongodb:
@@ -20,3 +20,5 @@ spring:
       password: M9K4suTeQqFxuTxc#
       host: dds-uf6536fd30773ba41.mongodb.rds.aliyuncs.com
       port: 3717
+  main:
+    allow-bean-definition-overriding: true

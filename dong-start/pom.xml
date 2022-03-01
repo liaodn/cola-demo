@@ -16,14 +16,10 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-actuator</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -51,9 +47,9 @@
         </dependency>
 
         <!--<dependency>-->
-        <!--<groupId>com.example</groupId>-->
-        <!--<artifactId>dong-infrastructure-mongo</artifactId>-->
-        <!--<version>0.0.1</version>-->
+            <!--<groupId>com.example</groupId>-->
+            <!--<artifactId>dong-infrastructure-mongo</artifactId>-->
+            <!--<version>0.0.1</version>-->
         <!--</dependency>-->
     </dependencies>
 
