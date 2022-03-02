@@ -9,6 +9,8 @@ import com.example.dong.repository.dataobject.UserDO;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -57,5 +59,10 @@ public class UserGatewayImpl implements UserGateway {
         return userResult;
     }
 
-
+    @Override
+    public Page<User> findPage(int pageIndex) {
+        PageRequest pageRequest = PageRequest.of(pageIndex, 6);
+        Page<UserDO> page = userRepository.findAll(pageRequest);
+        return page.map(UserConvertor::to);
+    }
 }

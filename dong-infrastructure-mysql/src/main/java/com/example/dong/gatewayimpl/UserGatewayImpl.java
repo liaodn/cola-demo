@@ -9,6 +9,8 @@ import com.example.dong.repository.dataobject.UserDO;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -45,6 +47,13 @@ public class UserGatewayImpl implements UserGateway {
     }
 
     @Override
+    public Page<User> findPage(int pageIndex) {
+        PageRequest pageRequest = PageRequest.of(pageIndex, 6);
+        Page<UserDO> page = userRepository.findAll(pageRequest);
+        return page.map(UserConvertor::to);
+    }
+
+    @Override
     public User insert(User user) {
         UserDO userDO = new UserDO();
         userDO.setUsername(user.getUsername());
@@ -52,7 +61,7 @@ public class UserGatewayImpl implements UserGateway {
         userDO.setPassword(user.getPassword());
         userDO.setEmail(user.getEmail());
         UserDO dbUserDO = userRepository.save(userDO);
-        User userResult =new User();
+        User userResult = new User();
         BeanUtils.copyProperties(dbUserDO, userResult);
         return userResult;
     }

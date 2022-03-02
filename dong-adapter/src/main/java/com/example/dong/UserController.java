@@ -2,6 +2,7 @@ package com.example.dong;
 
 import com.alibaba.cola.dto.Response;
 import com.example.dong.api.UserServiceI;
+import com.example.dong.dto.PageQry;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
 import com.example.dong.dto.clientobject.UserCO;
@@ -28,6 +29,11 @@ public class UserController {
     @PostMapping("/test1")
     public Response getUserInfo(@RequestBody SexQry sexQry) {
         return userServiceI.findBySex(sexQry);
+    }
+
+    @PostMapping("/test2")
+    public Response getUserInfo(@RequestBody PageQry pageQry) {
+        return userServiceI.findPage(pageQry);
     }
 
     @PostMapping("/insert")

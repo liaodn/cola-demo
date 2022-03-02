@@ -1,6 +1,7 @@
 package com.example.dong.domain.gateway;
 
 import com.example.dong.domain.user.User;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,8 @@ public interface UserGateway {
     User findByUsernameLike(String userName);
 
     List<User> findBySex(String sex);
+
+    Page<User> findPage(int pageIndex);
 
     User insert(User user);
 
