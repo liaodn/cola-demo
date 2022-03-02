@@ -10,6 +10,9 @@ import com.example.dong.dto.PageQry;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
 import com.example.dong.dto.clientobject.UserCO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.AopContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +24,7 @@ import javax.annotation.Resource;
  *
  */
 @Service
+@Slf4j
 public class UserServiceImpl implements UserServiceI {
 
     @Resource
@@ -35,19 +39,29 @@ public class UserServiceImpl implements UserServiceI {
     @Resource
     private UserCOAddCmd userCOAddCmd;
 
+    @Autowired
+    private UserServiceImpl userServiceI;
 
     @Override
     public Response findByUsernameLike(UserQry userQry) {
         return usernameQryExe.execute(userQry);
     }
 
+
     @Override
     public Response findBySex(SexQry qry) {
+        test();
         return sexQryExe.execute(qry);
+    }
+
+    public void test(){
+        log.info("测试类");
     }
 
     @Override
     public Response findPage(PageQry pageQry) {
+        userServiceI.test();
+        ((UserServiceImpl)AopContext.currentProxy()).test();
         return pageQryExe.execute(pageQry);
     }
 
