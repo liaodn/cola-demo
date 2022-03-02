@@ -1,5 +1,8 @@
 package com.example.dong.repository;
 
+import com.example.dong.annotation.Uid;
+import com.example.dong.config.UidEntityListener;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -18,9 +21,10 @@ import java.util.Date;
  * @Date: 2022/2/28 9:13 AM
  *
  */
+@Data
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
-public abstract class BaseABC {
+@EntityListeners({AuditingEntityListener.class, UidEntityListener.class})
+public abstract class BaseEntity {
 
     @CreatedBy
     @Column(
@@ -48,4 +52,10 @@ public abstract class BaseABC {
             name = "last_modified_date"
     )
     private Date lastModifiedDate = new Date();
+
+    @Column(
+            name = "uid"
+    )
+    @Uid
+    private String uid;
 }

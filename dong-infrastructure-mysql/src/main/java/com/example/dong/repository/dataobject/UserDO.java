@@ -1,6 +1,6 @@
 package com.example.dong.repository.dataobject;
 
-import com.example.dong.repository.BaseABC;
+import com.example.dong.repository.BaseEntity;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tb_user")
 @Data
-public class UserDO extends BaseABC {
+public class UserDO extends BaseEntity {
 
     @Id
     @GenericGenerator(name = "idGenerator", strategy = "uuid")

@@ -50,6 +50,7 @@ public class UserGatewayImpl implements UserGateway {
         userDO.setSex(user.getSex());
         userDO.setPassword(user.getPassword());
         userDO.setEmail(user.getEmail());
+        userDO.setUid(user.getUid());
         UserDO dbUserDO = userRepository.save(userDO);
         User userResult = new User();
         BeanUtils.copyProperties(dbUserDO, userResult);

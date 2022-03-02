@@ -23,7 +23,7 @@ public class UserCO {
     private Date createdDate = new Date();
     private String lastModifiedBy;
     private Date lastModifiedDate = new Date();
-
+    private String uid;
     public String getId() {
         return id;
     }
@@ -94,5 +94,13 @@ public class UserCO {
 
     public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

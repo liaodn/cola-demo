@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document("tb_user")
 @EqualsAndHashCode(callSuper = false)
-public class UserDO extends BaseABC {
+public class UserDO extends BaseEntity {
 
     @Id
     private String id;

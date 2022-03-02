@@ -27,5 +27,5 @@ public class User {
     private Date createdDate = new Date();
     private String lastModifiedBy;
     private Date lastModifiedDate = new Date();
-
+    private String uid;
 }
