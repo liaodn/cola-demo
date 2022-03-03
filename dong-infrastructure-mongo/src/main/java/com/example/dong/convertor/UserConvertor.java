@@ -18,6 +18,8 @@ public class UserConvertor {
         user.setPassword(userDO.getPassword());
         user.setSex(userDO.getSex());
         user.setUsername(userDO.getUsername());
+        user.setUid(userDO.getUid());
+        user.setAge(userDO.getAge());
         return user;
     }
 

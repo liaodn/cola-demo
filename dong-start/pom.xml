@@ -40,17 +40,17 @@
             <version>0.0.1</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.example</groupId>-->
-            <!--<artifactId>dong-infrastructure-mysql</artifactId>-->
-            <!--<version>0.0.1</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>dong-infrastructure-mongo</artifactId>
+            <artifactId>dong-infrastructure-mysql</artifactId>
             <version>0.0.1</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.example</groupId>-->
+            <!--<artifactId>dong-infrastructure-mongo</artifactId>-->
+            <!--<version>0.0.1</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>

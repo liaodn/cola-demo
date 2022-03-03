@@ -34,5 +34,7 @@ public class UserDO extends BaseEntity {
     @Column(name = "sex", length = 64)
     private String sex;
 
+    @Column(name = "age")
+    private int age;
 }
 

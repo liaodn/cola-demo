@@ -10,5 +10,8 @@ import lombok.Data;
  */
 @Data
 public class PageQry {
-    private int pageIndex;
+    private String username;
+    private String email;
+    private String sex;
+    private int age;
 }

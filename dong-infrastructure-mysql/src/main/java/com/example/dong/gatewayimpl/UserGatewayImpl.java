@@ -1,22 +1,26 @@
 package com.example.dong.gatewayimpl;
 
+import com.example.dong.common.page.PaginationDTO;
 import com.example.dong.convertor.UserConvertor;
 import com.example.dong.domain.gateway.UserGateway;
 import com.example.dong.domain.user.User;
+import com.example.dong.dto.PageQry;
 import com.example.dong.repository.UserRepository;
 import com.example.dong.repository.dataobject.QUserDO;
 import com.example.dong.repository.dataobject.UserDO;
-import com.google.common.collect.Lists;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  *
@@ -47,9 +51,54 @@ public class UserGatewayImpl implements UserGateway {
     }
 
     @Override
-    public Page<User> findPage(int pageIndex) {
-        PageRequest pageRequest = PageRequest.of(pageIndex, 6);
-        Page<UserDO> page = userRepository.findAll(pageRequest);
+    public Page<User> findPage(PaginationDTO<PageQry> pageQry) {
+
+        UserDO user = new UserDO();
+        user.setUsername(pageQry.getCondition().getUsername());
+        user.setSex(pageQry.getCondition().getSex());
+        user.setEmail(pageQry.getCondition().getEmail());
+        user.setAge(pageQry.getCondition().getAge());
+
+        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("username", ExampleMatcher.GenericPropertyMatchers.contains())
+                .withMatcher("email", ExampleMatcher.GenericPropertyMatchers.contains());
+        PageRequest pageRequest = PageRequest.of(pageQry.getPageNum(), pageQry.getPageSize(), pageQry.getSort());
+
+        Page<UserDO> page = userRepository.findAll(Example.of(user, matcher), pageRequest);
+
+        return page.map(UserConvertor::to);
+    }
+
+    @Override
+    public Page<User> findPageSpec(PaginationDTO<PageQry> pageQry) {
+
+        PageQry qry = pageQry.getCondition();
+
+        PageRequest pageRequest = PageRequest.of(pageQry.getPageNum(), pageQry.getPageSize(), pageQry.getSort());
+
+        Page<UserDO> page = userRepository.findAll((Specification<UserDO>) (root, query, criteriaBuilder) -> {
+            Predicate predicate = criteriaBuilder.conjunction();
+            predicate.getExpressions().add(criteriaBuilder.like(root.get("username"), "%" + qry.getUsername() + "%"));
+            predicate.getExpressions().add(criteriaBuilder.ge(root.get("age"), qry.getAge()));
+            return predicate;
+        }, pageRequest);
+
+        return page.map(UserConvertor::to);
+    }
+
+    @Override
+    public Page<User> findPageDSL(PaginationDTO<PageQry> pageQry) {
+
+        PageQry qry = pageQry.getCondition();
+
+        PageRequest pageRequest = PageRequest.of(pageQry.getPageNum(), pageQry.getPageSize(), pageQry.getSort());
+
+        QUserDO userDO = QUserDO.userDO;
+        com.querydsl.core.types.Predicate predicate = userDO.username.contains(qry.getUsername())
+                .and(userDO.age.eq(qry.getAge()));
+
+        userRepository.findAll(predicate, pageRequest);
+        Page<UserDO> page = userRepository.findAll(predicate, pageRequest);
+
         return page.map(UserConvertor::to);
     }
 
@@ -60,6 +109,8 @@ public class UserGatewayImpl implements UserGateway {
         userDO.setSex(user.getSex());
         userDO.setPassword(user.getPassword());
         userDO.setEmail(user.getEmail());
+        userDO.setUid(user.getUid());
+        userDO.setAge(user.getAge());
         UserDO dbUserDO = userRepository.save(userDO);
         User userResult = new User();
         BeanUtils.copyProperties(dbUserDO, userResult);

@@ -28,4 +28,5 @@ public class User {
     private String lastModifiedBy;
     private Date lastModifiedDate = new Date();
     private String uid;
+    private int age;
 }

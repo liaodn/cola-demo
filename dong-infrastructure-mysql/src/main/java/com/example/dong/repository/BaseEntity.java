@@ -40,7 +40,7 @@ public abstract class BaseEntity {
             nullable = false,
             updatable = false
     )
-    private Date createdDate = new Date();
+    private Date createdDate  ;
     @LastModifiedBy
     @Column(
             name = "last_modified_by",
@@ -51,7 +51,7 @@ public abstract class BaseEntity {
     @Column(
             name = "last_modified_date"
     )
-    private Date lastModifiedDate = new Date();
+    private Date lastModifiedDate;
 
     @Column(
             name = "uid"

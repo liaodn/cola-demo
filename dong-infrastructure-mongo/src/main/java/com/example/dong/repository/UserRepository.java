@@ -1,6 +1,7 @@
 package com.example.dong.repository;
 
 import com.example.dong.repository.dataobject.UserDO;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 

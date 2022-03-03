@@ -18,7 +18,7 @@ public class UserCO {
     private String email;
 
     private String sex;
-
+    private int age;
     private String createdBy;
     private Date createdDate = new Date();
     private String lastModifiedBy;
@@ -102,5 +102,13 @@ public class UserCO {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

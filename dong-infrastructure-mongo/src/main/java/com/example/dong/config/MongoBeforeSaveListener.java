@@ -27,7 +27,7 @@ public class MongoBeforeSaveListener implements ApplicationListener<BeforeSaveEv
             log.info("mongo 保存事件 ApplicationListener");
             //id为空时自动注入ID、租户ID
             document.putIfAbsent("_id", System.currentTimeMillis());
-            document.put("username", "年冬廖");
+//            document.put("username", "年冬廖");
         }
     }
 }

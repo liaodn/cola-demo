@@ -2,6 +2,8 @@ package com.example.dong;
 
 import com.alibaba.cola.dto.Response;
 import com.example.dong.api.UserServiceI;
+import com.example.dong.common.page.PaginationDTO;
+import com.example.dong.common.page.PaginationVO;
 import com.example.dong.dto.PageQry;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
@@ -32,8 +34,8 @@ public class UserController {
     }
 
     @PostMapping("/test2")
-    public Response getUserInfo(@RequestBody PageQry pageQry) {
-        return userServiceI.findPage(pageQry);
+    public Response getUserInfo(@RequestBody PaginationVO<PageQry> pageQry) {
+        return userServiceI.findPage(pageQry.to());
     }
 
     @PostMapping("/insert")

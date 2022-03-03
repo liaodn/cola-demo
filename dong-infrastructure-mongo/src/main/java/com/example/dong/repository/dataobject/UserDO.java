@@ -29,5 +29,6 @@ public class UserDO extends BaseEntity {
 
     private String sex;
 
+    private int age;
 }
 

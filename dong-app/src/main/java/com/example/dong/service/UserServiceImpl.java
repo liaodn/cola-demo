@@ -6,6 +6,7 @@ import com.example.dong.command.UserCOAddCmd;
 import com.example.dong.command.query.PageQryExe;
 import com.example.dong.command.query.SexQryExe;
 import com.example.dong.command.query.UsernameQryExe;
+import com.example.dong.common.page.PaginationDTO;
 import com.example.dong.dto.PageQry;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
@@ -54,14 +55,14 @@ public class UserServiceImpl implements UserServiceI {
         return sexQryExe.execute(qry);
     }
 
-    public void test(){
+    public void test() {
         log.info("测试类");
     }
 
     @Override
-    public Response findPage(PageQry pageQry) {
+    public Response findPage(PaginationDTO<PageQry> pageQry) {
         userServiceI.test();
-        ((UserServiceImpl)AopContext.currentProxy()).test();
+        ((UserServiceImpl) AopContext.currentProxy()).test();
         return pageQryExe.execute(pageQry);
     }
 

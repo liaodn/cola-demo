@@ -40,6 +40,7 @@
         <module>dong-infrastructure-mysql</module>
         <module>dong-infrastructure-mongo</module>
         <module>dong-flowable</module>
+        <module>common</module>
     </modules>
 
     <dependencyManagement>
