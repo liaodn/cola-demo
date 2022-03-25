@@ -22,3 +22,14 @@ spring:
       port: 3717
   main:
     allow-bean-definition-overriding: true
+
+dong:
+  enable: true
+  username: 红红
+  age: 11
+  sex: 女
+logging:
+  level:
+    org:
+      springframework:
+        security: debug

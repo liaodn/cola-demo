@@ -96,7 +96,7 @@
                         </annotationProcessor>
                         <annotationProcessor>lombok.launch.AnnotationProcessorHider$ClaimingProcessor
                         </annotationProcessor>
-                        <annotationProcessor>org.openjdk.jmh.generators.BenchmarkProcessor</annotationProcessor>
+                        <!--<annotationProcessor>org.openjdk.jmh.generators.BenchmarkProcessor</annotationProcessor>-->
                         <annotationProcessor>com.querydsl.apt.jpa.JPAAnnotationProcessor</annotationProcessor>
                     </annotationProcessors>
                 </configuration>

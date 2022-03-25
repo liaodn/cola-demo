@@ -9,6 +9,7 @@ import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
 import com.example.dong.dto.clientobject.UserCO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -41,5 +42,28 @@ public class UserController {
     @PostMapping("/insert")
     public Response insert(@RequestBody UserCO userCO) {
         return userServiceI.insert(userCO);
+    }
+
+
+    @PostMapping("/api/login")
+    public String insert111(@RequestBody String json) {
+        return "success";
+    }
+
+    @PostMapping("/api/test")
+    public String insert222ww(@RequestBody String json) {
+        return "success tet";
+    }
+
+    @PostMapping("/api/test1")
+    @PreAuthorize("hasAnyRole('MENU1')")
+    public String insert222(@RequestBody String json) {
+        return "success11";
+    }
+
+    @PostMapping("/api/test2")
+    @PreAuthorize("hasAnyRole('MENU5')")
+    public String inser333(@RequestBody String json) {
+        return "success11";
     }
 }

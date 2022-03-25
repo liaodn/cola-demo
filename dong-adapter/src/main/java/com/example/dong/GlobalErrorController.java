@@ -35,15 +35,15 @@ public class GlobalErrorController extends BasicErrorController {
         return super.errorHtml(request, response);
     }
 
-    @Override
-    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
-        Map<String, Object> body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));
-        HttpStatus status = getStatus(request);
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("code", 100);
-        map.put("status", true);
-        map.put("data", "");
-        return new ResponseEntity<>(map, HttpStatus.valueOf(200));
-    }
+//    @Override
+//    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+//        Map<String, Object> body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));
+//        HttpStatus status = getStatus(request);
+//
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("code", 100);
+//        map.put("status", true);
+//        map.put("data", "");
+//        return new ResponseEntity<>(map, HttpStatus.valueOf(200));
+//    }
 }
