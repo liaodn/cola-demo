@@ -2,14 +2,12 @@ package com.example.dong;
 
 import com.alibaba.cola.dto.Response;
 import com.example.dong.api.UserServiceI;
-import com.example.dong.common.page.PaginationDTO;
 import com.example.dong.common.page.PaginationVO;
 import com.example.dong.dto.PageQry;
 import com.example.dong.dto.SexQry;
 import com.example.dong.dto.UserQry;
 import com.example.dong.dto.clientobject.UserCO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -56,13 +54,11 @@ public class UserController {
     }
 
     @PostMapping("/api/test1")
-    @PreAuthorize("hasAnyRole('MENU1')")
     public String insert222(@RequestBody String json) {
         return "success11";
     }
 
     @PostMapping("/api/test2")
-    @PreAuthorize("hasAnyRole('MENU5')")
     public String inser333(@RequestBody String json) {
         return "success11";
     }

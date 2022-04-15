@@ -15,11 +15,11 @@ spring:
   # MongoDB 配置
   data:
     mongodb:
-      database: admin
-      username: root
-      password: M9K4suTeQqFxuTxc#
-      host: dds-uf6536fd30773ba41.mongodb.rds.aliyuncs.com
-      port: 3717
+      database: cola_demo
+#      username: root
+#      password: M9K4suTeQqFxuTxc#
+      host: 8.142.107.111
+      port: 27333
   main:
     allow-bean-definition-overriding: true
 

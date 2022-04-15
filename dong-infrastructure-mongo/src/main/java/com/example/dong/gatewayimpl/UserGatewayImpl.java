@@ -15,14 +15,15 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.StringExpression;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -37,6 +38,9 @@ public class UserGatewayImpl implements UserGateway {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private MongoOperations mongoOperations;
 
     @Override
     public User findByUsernameLike(String userName) {
@@ -83,14 +87,25 @@ public class UserGatewayImpl implements UserGateway {
     }
 
     /**
-     * Mongo 不支持
+     * Mongo 不支持,这里使用 query + criteria 实现
      * @param pageQry
      * @return
      */
     @Override
     public Page<User> findPageSpec(PaginationDTO<PageQry> pageQry) {
-
-        return null;
+        PageQry qry = pageQry.getCondition();
+        PageRequest pageRequest =  PageRequest.of(pageQry.getPageNum(),pageQry.getPageSize(),pageQry.getSort());
+//        userRepository.
+        Query query = new Query();
+        query.addCriteria(Criteria.where("username").regex(".*?\\" +qry.getUsername()+ ".*"))
+        .addCriteria(Criteria.where("age").is(qry.getAge()));
+        long count = mongoOperations.count(query,UserDO.class);
+        List<UserDO> userDoList = Collections.emptyList();
+        if(count>0){
+            userDoList = mongoOperations.find(query.with(pageRequest), UserDO.class);
+        }
+        Page<UserDO> page = new PageImpl<UserDO>(userDoList, pageRequest, count);
+        return page.map(UserConvertor::to);
     }
 
     @Override

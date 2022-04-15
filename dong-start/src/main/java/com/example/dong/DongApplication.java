@@ -3,17 +3,13 @@ package com.example.dong;
 import com.example.dong.config.DongProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @Slf4j
 public class DongApplication {
 

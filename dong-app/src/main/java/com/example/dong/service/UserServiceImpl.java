@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public Response findPage(PaginationDTO<PageQry> pageQry) {
         userServiceI.test();
-        ((UserServiceImpl) AopContext.currentProxy()).test();
+//        ((UserServiceImpl) AopContext.currentProxy()).test();
         return pageQryExe.execute(pageQry);
     }
 
