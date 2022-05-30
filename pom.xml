@@ -32,6 +32,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <!--<hibernate.version>${}</hibernate.version>-->
+        <qlexpress.version>3.2.0</qlexpress.version>
     </properties>
 
     <modules>
@@ -46,6 +47,8 @@
         <module>common</module>
         <module>dong-security</module>
         <module>dong-resource</module>
+        <module>dong-test</module>
+        <module>dong-qlexpress</module>
     </modules>
 
     <dependencyManagement>
@@ -74,6 +77,13 @@
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
                 <scope>runtime</scope>
                 <optional>true</optional>
@@ -95,11 +105,7 @@
                 <version>${lombok.version}</version>
                 <optional>true</optional>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <scope>test</scope>
-            </dependency>
+
 
             <!--COLA Components-->
             <!--Spring托管的领域实体组件-->
@@ -165,6 +171,11 @@
                 <version>${guava.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>QLExpress</artifactId>
+                <version>${qlexpress.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
