@@ -61,6 +61,11 @@
         <artifactId>dong-infrastructure-mongo</artifactId>
         <version>0.0.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.ethancommitpush</groupId>
+            <artifactId>spring-boot-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
